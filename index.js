@@ -1,7 +1,7 @@
 //const Discord = require('discord.js')
-const { Client, Events } = require('discord.js')
+import { Client, Events } from 'discord.js'
 const client = new Client({ intents: 3276799 })
-const TOKEN = require('./config')
+import TOKEN from './config.js'
 
 client.on(Events.ClientReady, async () => {
  console.log(`Bot ${client.user.tag} is ONLINE`)
