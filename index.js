@@ -9,7 +9,7 @@ client.on(Events.ClientReady, async () => {
 //responses to messages
 client.on(Events.MessageCreate, async (message) => {
  if (message.author.bot) return //If the author of the message is the bot, it does not activate the commands
- if (!message.content.startsWith('-')) return //If the commands do not begin with the established character, they will not be taken into account.
+ if (!message.content.startsWith('/')) return //If the commands do not begin with the established character, they will not be taken into account.
 
  const args = message.content.slice(1).split(' ')[0] //Message content -1 character
  //Text command handler
