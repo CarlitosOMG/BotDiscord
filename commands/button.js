@@ -10,7 +10,7 @@ const usernameButton = new ButtonBuilder()
 
 const avatarButton = new ButtonBuilder()
  .setCustomId('avatar')
- .setEmoji('🥵')
+ .setEmoji('👤')
  .setLabel('Mostrar avatar de usuario')
  .setStyle(1)
 
@@ -25,7 +25,6 @@ module.exports = {
   const reply = await message.reply({
    components: [actionRow]
   })
-  message.reply({ components: [actionRow] })
 
   //message collector
   const filter = (interaction) =>
@@ -33,18 +32,18 @@ module.exports = {
    interaction.message.id === reply.id
   const collector = message.channel.createMessageComponentCollector({
    filter,
-   item: 60 * 1000 //1 minute duration in milliseconds
+   time: 60 * 1000 //1 minute duration in milliseconds
   })
 
   //when the collector is active
-  collector.on('collector', async (interaction) => {
+  collector.on('collect', async (interaction) => {
    if (interaction.customId === 'username') {
     interaction.update({
      content: `Tu nombre de usuario es **${message.author.displayName}**`,
      components: []
     })
    } else if (interaction.customId === 'avatar') {
-    const avatar = member.user.displayAvatarURL({ size: 512 })
+    const avatar = message.author.displayAvatarURL({ size: 512 })
     interaction.update({
      content: `Tu imagen de perfil es`,
      files: [avatar],
