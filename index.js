@@ -24,4 +24,10 @@ client.on(Events.MessageCreate, async (message) => {
  }
 })
 
+client.on(Events.GuildMemberAdd, async (member) => {
+ const welcomeChannelId = '1230004037244551238'
+ const channel = await client.channels.fetch(welcomeChannelId)
+ channel.send(`**<@${member.user.id}> Bien Venido al servidor!**🥵`)
+})
+
 client.login(TOKEN)
