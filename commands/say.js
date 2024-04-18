@@ -1,10 +1,10 @@
 //"say" command: repeats the given arguments
-export const description = 'Repite los argumentos dados'
-export async function run(message) {
- const args = message.content.split(' ').slice(1).join(' ')
+export async function run(interaction) {
+ const args = interaction.options.getString('texto')
 
- if (args.length < 1)
-  return message.reply('Argumento invalido. Intenta nuevamente')
+ if (!args) {
+  return interaction.reply('Argumento inválido. Inténtalo de nuevo.')
+ }
 
- message.reply(args)
+ await interaction.reply(args)
 }

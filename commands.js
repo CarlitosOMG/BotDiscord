@@ -4,7 +4,19 @@ import CONFIG from './config.js'
 const commands = [
  {
   name: 'ping',
-  description: 'Replies with Pong!'
+  description: 'Responde con Pong'
+ },
+ {
+  name: 'say',
+  description: 'Repite los argumentos dados',
+  options: [
+   {
+    name: 'texto',
+    description: 'El texto que se repetirá',
+    type: 3,
+    required: true
+   }
+  ]
  }
 ]
 
