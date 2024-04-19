@@ -25,13 +25,13 @@ client.on('interactionCreate', async (interaction) => {
 })
 
 client.on('guildMemberAdd', async (member) => {
- const welcomeChannelId = '1230004037244551238'
+ const welcomeChannelId = CONFIG.CHANNELS.WELCOME
  const channel = await client.channels.fetch(welcomeChannelId)
  channel.send(`**<@${member.user.id}> Bien Venido al servidor!**🥵`)
 })
 
 client.on('guildMemberRemove', async (member) => {
- const welcomeChannelId = '1230004037244551238'
+ const welcomeChannelId = CONFIG.CHANNELS.WELCOME
  const channel = await client.channels.fetch(welcomeChannelId)
  channel.send(`**<@${member.user.id}> Ah abandonado el barco!**😭`)
 })
