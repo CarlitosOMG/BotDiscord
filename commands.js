@@ -17,6 +17,18 @@ const commands = [
     required: true
    }
   ]
+ },
+ {
+  name: 'avatar',
+  description: 'Muestra el avatar del usuario seleccionado',
+  options: [
+   {
+    name: 'usuario',
+    description: 'Selecciona un usuario',
+    type: 9,
+    required: true
+   }
+  ]
  }
 ]
 
